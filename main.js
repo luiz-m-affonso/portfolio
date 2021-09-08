@@ -55,3 +55,35 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
+// Background
+
+const spaceTexture = new THREE.TextureLoader().load('2.jpeg');
+scene.background = spaceTexture;
+
+// Avatar
+
+const luizTexture = new THREE.TextureLoader().load('1.jpg');
+
+const luiz = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: luizTexture }));
+
+scene.add(luiz);
+
+// Moon
+
+const moonTexture = new THREE.TextureLoader().load('3.jpeg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture
+  })
+);
+
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10);
+
+luiz.position.z = -5;
+luiz.position.x = 2;
+
