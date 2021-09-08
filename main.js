@@ -19,3 +19,14 @@ camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
+// Torus
+
+const normalTexture = new THREE.TextureLoader().load('3.jpeg')
+const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const torus = new THREE.Mesh(
+  geometry,
+  new THREE.MeshStandardMaterial({ map: normalTexture})
+);
+
+scene.add(torus);
+
